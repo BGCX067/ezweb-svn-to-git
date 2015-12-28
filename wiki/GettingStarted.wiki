@@ -1,0 +1,36 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+This is a guide how to write your application with EZweb. Read [Installation] to find how to install EZweb.
+
+
+= Details =
+
+What work does EZweb do in your application? It receives the request from web client, and forward the request to business layer to process, and then send the response back with JSON or JSONP format.
+
+EZweb does support POST and GET methods' request, so you don't need to worry about the method you are using. Here are the parameters in the httprequest EZweb cares about:
+  * commandName (Mandatory): This is the java class name in your application in server side. EZweb forward the request to it to process.
+  * responseType (Optional): This is the response type you would like to receive. 'responseType=jsonp' means you would like to receive the response with JSONP format. By default, EZweb returns response with JSON format. 'responseType=json' is not required.
+  * callback (Optional): This is the callback method name. It is mandatory if you give responseType in the request. Otherwize, the EZweb does not know which method receives and handle the response data.
+responseType and callback must be used together, EZweb does not accept any one of these two parameters.
+
+So, these are the parameters the client application should send to EZweb. Here is an example using GET method. If the jsp page is named index1.jsp. The request URL is like this, http://localhost:8080/ezwebSample/index1.jsp?responseType=jsonp&callback=ast&commandName=com.pegasus.ezwebsample.command.Index1Command.
+EZweb will forward the request to java class com.pegasus.ezwebsample.command.Index1Command. After the work, EZweb will send the response data to method ast, with JSONP format.
+
+So easy it is, right? That is all you need to do in client code. How about the code in server side? Remember the commandName parameter? It defines the java class name already. You need to do next is generating a java class named com.pegasus.ezwebsample.command.Index1Command. It is extended from AbstractCommand and it must implement a method named 'process'.  EZweb tool will invoke 'process' method and get the response data. What is in 'process' method? It depends on the business, whatever it is, returning the response data with JSON format to EZweb. That is it.
+
+{{{
+package com.pegasus.ezwebsample.command;
+
+import javax.servlet.http.HttpServletRequest;
+
+import com.pegasus.ezweb.servlet.AbstractCommand;
+
+public class Index1Command extends AbstractCommand{
+
+	public String process(HttpServletRequest request){
+		return new String("{aa:bb}");
+	}
+}
+}}}

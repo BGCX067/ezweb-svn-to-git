@@ -1,0 +1,13 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+This is an index page for wiki resources.
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * [Installation]       ---Install guide for EZweb mini. 
+  * [GettingStarted]     ---how to develop with EZweb mini.
+  * [EZwebCatalog]       ---EZweb tool family.

@@ -1,0 +1,27 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+EZweb is a so simple web tool, there is only two steps for installation.
+
+
+= Details =
+
+Two steps to install EZweb, they are:
+
+  * Download EZweb jar file in download page, and include it into your application.
+  * Add configuration to web.xml, like this,
+{{{
+<!-- Servlets -->
+  <servlet>
+    <servlet-name>ezweb</servlet-name>
+    <servlet-class>com.pegasus.ezweb.servlet.EZwebServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>ezweb</servlet-name>
+    <url-pattern>/*</url-pattern>
+  </servlet-mapping>
+}}}
+
+Yes, that is it. You have got EZweb installed. For next, please read [GettingStarted] and try to write your application with it.

@@ -1,0 +1,15 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+This is a page including the catalog of EZweb tool.
+
+
+= Details =
+
+EZweb provides multiple level's help with your application:
+  * EZweb mini.
+         EZweb mini is the simplest tool. It only provides a web request handler mechanism.
+  * EZweb plus.  ---To be added. Under developing.
+         EZweb plus is an enhanced version of EZweb mini. In EZweb mini, you must generate response data with JSON format in your code. EZweb plus will help generate JSON response automatically.
+  * To Be Added.
